@@ -1,0 +1,695 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- modal cliente -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">
+        {{ nuevoCliente ? "Crear nuevo cliente" : "Editar cliente" }}
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Nombre" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Apellidos" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <input type="number" class="form-control" placeholder="Documento" />
+          </div>
+          <div class="col-md-8 mb-3">
+            <input type="email" class="form-control" placeholder="Correo" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >fehca de nacimiento</span
+                >
+              </div>
+              <input type="date" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <textarea
+              class="form-control"
+              placeholder="Observaciones"
+            ></textarea>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <select name="" id="select-tipo-decuento" class="custom-select">
+                <option value="">Tipo de descuento</option>
+                <option value="">option 2</option>
+                <option value="">option 3</option>
+              </select>
+              <div class="input-group-append">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  (click)="showModal(modalDescuento); modal.dismiss('Ok click')"
+                >
+                  <i class="fas fa-plus-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <select name="" id="select-tipo-cliente" class="custom-select">
+                <option value="">Tipo de cliente</option>
+                <option value="">option 1</option>
+                <option value="">option 2</option>
+                <option value="">option 3</option>
+              </select>
+              <div class="input-group-append">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  (click)="
+                    showModal(modalTipoCliente); modal.dismiss('Ok click')
+                  "
+                >
+                  <i class="fas fa-plus-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <h5 class="mb-4">Domicilio</h5>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tipo de domicilio"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <select name="" id="select-ciudad" class="custom-select">
+              <option value="">Ciudad</option>
+              <option value="">option 1</option>
+              <option value="">option 2</option>
+              <option value="">option 3</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <select name="" id="" class="custom-select">
+              <option value="">Barrio</option>
+              <option value="">option 1</option>
+              <option value="">option 2</option>
+              <option value="">option 3</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Ciudad" />
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-success">guardar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <!-- modal descuento -->
+  <ng-template #modalDescuento let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Tipode de descuento</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Ok click'); showModal(content)"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-row">
+          <div class="col-md-4">
+            <input type="number" placeholder="Descuento" class="form-control" />
+          </div>
+          <div class="col-md-8 mb-2">
+            <textarea placeholder="Descripción" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end flex-wrap">
+          <button class="btn btn-success" type="button">guardar</button>
+        </div>
+      </form>
+      <hr class="my-4" />
+      <div class="d-flex justify-content-end flex-wrap">
+        <div class="row">
+          <div class="col-12 input-group input-group-rounded input-group-merge">
+            <input
+              type="search"
+              class="form-control form-control-rounded form-control-prepended"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <span class="fa fa-search"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive mt-2">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <th scope="col">Descuento</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10.5</td>
+              <td>Black Fray</td>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    checked="true"
+                    class="custom-control-input"
+                    id="customSwitch2"
+                  />
+                  <label
+                    class="custom-control-label"
+                    for="customSwitch2"
+                  ></label>
+                </div>
+              </td>
+              <td>
+                <button class="btn">
+                  <i class="far fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="...">
+        <ul class="pagination justify-content-end mb-0">
+          <li class="page-item disabled">
+            <a class="page-link" href="javascript:void(0)" tabindex="-1">
+              <i class="fas fa-angle-left"></i>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="javascript:void(0)">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)"
+              >2 <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)">
+              <i class="fas fa-angle-right"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </ng-template>
+
+  <!-- modal tipo cliente -->
+  <ng-template #modalTipoCliente let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Tipo de cliente</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click'); showModal(content)"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-row">
+          <div class="col-md-6">
+            <input type="text" placeholder="Clave" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <textarea
+              name=""
+              id=""
+              placeholder="Descripción"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-2">
+          <button type="button" class="btn btn-success">guardar</button>
+        </div>
+      </form>
+      <hr class="my-4" />
+      <div class="d-flex justify-content-end flex-wrap">
+        <div class="row">
+          <div
+            class="col-12 input-group input-group-rounded input-group-merge"
+          >
+            <input
+              type="search"
+              class="form-control form-control-rounded form-control-prepended"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <span class="fa fa-search"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive mt-2">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <th scope="col">Descuento</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1254v</td>
+              <td>Black Fray</td>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    checked="true"
+                    class="custom-control-input"
+                    id="customSwitch-2"
+                  />
+                  <label
+                    class="custom-control-label"
+                    for="customSwitch-2"
+                  ></label>
+                </div>
+              </td>
+              <td>
+                <button class="btn">
+                  <i class="far fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="...">
+        <ul class="pagination justify-content-end mb-0">
+          <li class="page-item disabled">
+            <a class="page-link" href="javascript:void(0)" tabindex="-1">
+              <i class="fas fa-angle-left"></i>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="javascript:void(0)">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)"
+              >2 <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)">
+              <i class="fas fa-angle-right"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </ng-template>
+
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div
+            class="d-flex justify-content-between flex-wrap align-items-center"
+          >
+            <div class="mb-2">
+              <h3 class="mb-0">Tabla de usuario</h3>
+            </div>
+            <div>
+              <div class="input-group input-group-rounded input-group-merge">
+                <input
+                  type="search"
+                  class="form-control form-control-rounded form-control-prepended"
+                  placeholder="Buscar"
+                  aria-label="Search"
+                />
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <span class="fa fa-search"></span>
+                  </div>
+                </div>
+                <button
+                  class="btn btn-primary ml-2"
+                  (click)="showModal(content); nuevoCliente = true"
+                >
+                  <i class="fas fa-plus"></i> Crear cliente
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Tipo Cliente</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="javascript:void(0)"
+                    class="p-2"
+                    (click)="isOpen = !isOpen"
+                  >
+                    <i
+                      [ngClass]="
+                        isOpen ? 'fas fa-caret-down' : 'fas fa-caret-right'
+                      "
+                    ></i>
+                  </a>
+                </td>
+                <th scope="row">102212232</th>
+                <td>jhoe</td>
+                <td>march</td>
+                <td>Colaborador</td>
+                <td>colaborador@mail.com</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input
+                      type="checkbox"
+                      checked="true"
+                      class="custom-control-input"
+                      id="customSwitch1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customSwitch1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="text-left">
+                  <div ngbDropdown placement="bottom-right">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      ngbDropdownToggle
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      ngbDropdownMenu
+                      class="dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        (click)="showModal(content); nuevoCliente = false"
+                        ><i class="far fa-edit mr-2"></i><span>Editar</span></a
+                      >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-trash-alt mr-2"></i
+                        ><span>Borrar</span></a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <th scope="row">102212232</th>
+                <td>jhoe</td>
+                <td>march</td>
+                <td>Colaborador</td>
+                <td>colaborador@mail.com</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input
+                      type="checkbox"
+                      checked="true"
+                      class="custom-control-input"
+                      id="customSwitch1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customSwitch1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="text-left">
+                  <div ngbDropdown placement="bottom-right">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      ngbDropdownToggle
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      ngbDropdownMenu
+                      class="dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-edit mr-2"></i><span>Editar</span></a
+                      >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-trash-alt mr-2"></i
+                        ><span>Borrar</span></a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <th scope="row">102212232</th>
+                <td>jhoe</td>
+                <td>march</td>
+                <td>Colaborador</td>
+                <td>colaborador@mail.com</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input
+                      type="checkbox"
+                      checked="true"
+                      class="custom-control-input"
+                      id="customSwitch1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customSwitch1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="text-left">
+                  <div ngbDropdown placement="bottom-right">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      ngbDropdownToggle
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      ngbDropdownMenu
+                      class="dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-edit mr-2"></i><span>Editar</span></a
+                      >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-trash-alt mr-2"></i
+                        ><span>Borrar</span></a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <th scope="row">102212232</th>
+                <td>jhoe</td>
+                <td>march</td>
+                <td>Colaborador</td>
+                <td>colaborador@mail.com</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input
+                      type="checkbox"
+                      checked="true"
+                      class="custom-control-input"
+                      id="customSwitch1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customSwitch1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="text-left">
+                  <div ngbDropdown placement="bottom-right">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      ngbDropdownToggle
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      ngbDropdownMenu
+                      class="dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-edit mr-2"></i><span>Editar</span></a
+                      >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-trash-alt mr-2"></i
+                        ><span>Borrar</span></a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <th scope="row">102212232</th>
+                <td>jhoe</td>
+                <td>march</td>
+                <td>Colaborador</td>
+                <td>colaborador@mail.com</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="customSwitch1"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customSwitch1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="text-left">
+                  <div ngbDropdown placement="bottom-right">
+                    <a
+                      class="btn btn-sm btn-icon-only text-light"
+                      ngbDropdownToggle
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div
+                      ngbDropdownMenu
+                      class="dropdown-menu-right dropdown-menu-arrow"
+                    >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-edit mr-2"></i><span>Editar</span></a
+                      >
+                      <a
+                        class="dropdown-item align-items-center"
+                        href="javascript:void(0)"
+                        ><i class="far fa-trash-alt mr-2"></i
+                        ><span>Borrar</span></a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                  <i class="fas fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)"
+                  >2 <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">
+                  <i class="fas fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

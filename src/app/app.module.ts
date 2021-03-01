@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { CajaComponent } from './pages/caja/caja.component';
 import { BlancoComponent } from './pages/blanco/blanco.component';
+import { ClientesModule } from './pages/clientes/clientes.module';
+import { PuntoVentasComponent } from './pages/punto-ventas/punto-ventas.component';
+import { PuntoVentasModule } from './pages/punto-ventas/punto-ventas.module';
 
 
 @NgModule({
@@ -24,14 +27,17 @@ import { BlancoComponent } from './pages/blanco/blanco.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ClientesModule,
+    PuntoVentasModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
     CajaComponent,
-    BlancoComponent
+    BlancoComponent,
+    PuntoVentasComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
