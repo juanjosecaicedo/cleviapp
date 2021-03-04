@@ -1,0 +1,8 @@
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+label.check::after {
+    content: "✔";
+    color: white;
+    text-align: center;
+}

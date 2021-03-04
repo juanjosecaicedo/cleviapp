@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,28 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public focus;
-  public listTitles: any[];
-  public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
-    this.location = location;
-  }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
-  }
-  getTitle(){
-    var titlee = this.location.prepareExternalUrl(this.location.path());
-    if(titlee.charAt(0) === '#'){
-        titlee = titlee.slice( 1 );
+  ngOnInit() { }
+  getTitle() {
+    let title: any = this.router.url.split('/').slice(1)[0];
+    if (title.split('-') != undefined) {
+      return title.split('-').join(' ');
     }
+    return title;
 
-    for(var item = 0; item < this.listTitles.length; item++){
-        if(this.listTitles[item].path === titlee){
-            return this.listTitles[item].title;
-        }
-    }
-    return 'Dashboard';
   }
-
 }

@@ -1,0 +1,272 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Cuentas</h3>
+        </div>
+        <div class="table-responsive p-4">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Folio</th>
+                <th scope="col">Fecha cierre</th>
+                <th scope="col">Mesa</th>
+                <th scope="col">Total</th>
+                <th scope="col">Cancelada</th>
+                <th scope="col">Estación</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>166</th>
+                <td>535404</td>
+                <td>2019-12-20</td>
+                <td>0</td>
+                <td>0</td>
+                <td>P</td>
+                <td>DESARROLLO_ROBERT</td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary mr-2"
+                    placement="top"
+                    ngbTooltip="Ver detalle cuenta"
+                    (click)="mostrarDetalleCuenta = true"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                  <i class="fas fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)"
+                  >2 <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">
+                  <i class="fas fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <hr class="my-3" />
+        <div *ngIf="mostrarDetalleCuenta">
+          <div class="d-flex justify-content-end px-4">
+            <button
+              class="btn btn-outline-danger"
+              placement="top"
+              ngbTooltip="Ocultar detalle cuenta"
+              (click)="mostrarDetalleCuenta = false"
+            >
+              <i class="fas fa-eye-slash"></i>
+            </button>
+          </div>
+          <div class="row px-4 pb-4">
+            <div class="col-md-12 col-lg-6 col-xl-4 border border-1">
+              <h3 class="mb-2">Detalles de cuenta</h3>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Descuento</th>
+                      <th scope="col">Precio sin Impuesto</th>
+                      <th scope="col">Cantidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2058</td>
+                      <td>SALAMI</td>
+                      <td>0</td>
+                      <td>250</td>
+                      <td>4</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav aria-label="...">
+                  <ul class="pagination justify-content-end mb-0">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="javascript:void(0)"
+                        tabindex="-1"
+                      >
+                        <i class="fas fa-angle-left"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="javascript:void(0)">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)"
+                        >2 <span class="sr-only">(current)</span></a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">
+                        <i class="fas fa-angle-right"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-4 border border-1">
+              <h3 class="mb-2">Formas de pago</h3>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Forma Pago</th>
+                      <th scope="col">Valor</th>
+                      <th scope="col">Valor Propina</th>
+                      <th scope="col">Tipo Cambio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2058</td>
+                      <td>SALAMI</td>
+                      <td>0</td>
+                      <td>250</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav aria-label="...">
+                  <ul class="pagination justify-content-end mb-0">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="javascript:void(0)"
+                        tabindex="-1"
+                      >
+                        <i class="fas fa-angle-left"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="javascript:void(0)">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)"
+                        >2 <span class="sr-only">(current)</span></a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">
+                        <i class="fas fa-angle-right"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-4 border border-1">
+              <h3 class="mb-2">Deducciones</h3>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Subtotal</th>
+                      <th scope="col">Descuento</th>
+                      <th scope="col">Impuesto</th>
+                      <th scope="col">Propina</th>
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>250</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>250</td>
+                      <td>200</td>
+                      <td>1200</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav aria-label="...">
+                  <ul class="pagination justify-content-end mb-0">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="javascript:void(0)"
+                        tabindex="-1"
+                      >
+                        <i class="fas fa-angle-left"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="javascript:void(0)">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)"
+                        >2 <span class="sr-only">(current)</span></a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="javascript:void(0)">
+                        <i class="fas fa-angle-right"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-end flex-wrap align-content-center">
+            <button class="btn btn-primary mb-2"><i class="fas fa-box-open"></i> Re-abrir cuenta</button>
+            <button class="btn btn-success mb-2"><i class="fas fa-print"></i> Re-imprimir</button>
+            <button class="btn btn-warning mb-2"><i class="fas fa-redo"></i> Restablecer productos cuenta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
