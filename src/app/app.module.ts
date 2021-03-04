@@ -26,6 +26,7 @@ import { MonitorVentasComponent } from './pages/caja/monitor-ventas/monitor-vent
 import { ConsultasCuentasComponent } from './pages/caja/consultas-cuentas/consultas-cuentas.component';
 import { PromocionComponent } from './pages/caja/promocion/promocion.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     CuentasPorCobrasComponent,
     MonitorVentasComponent,
     ConsultasCuentasComponent,
-    PromocionComponent
+    PromocionComponent,
+    CerrarCajaComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

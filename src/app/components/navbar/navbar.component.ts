@@ -1,5 +1,5 @@
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private modal: NgbModal) { }
 
   ngOnInit() { }
   getTitle() {
@@ -17,6 +17,9 @@ export class NavbarComponent implements OnInit {
       return title.split('-').join(' ');
     }
     return title;
+  }
 
+  public showModal(content: any, size: string = 'xl'): void {
+    this.modal.open(content, { centered: true, size });
   }
 }

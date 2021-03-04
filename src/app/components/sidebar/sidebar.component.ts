@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbCollapse, NgbCollapseConfig, NgbNavConfig } from '@ng-bootstrap/ng-bootstrap';
+import { RootService } from './../../services/root.service';
 
 
 declare interface RouteInfo {
@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
     { path: 'domicilio', title: 'Domicilio', class: '' }
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public rootService: RootService) {
 
   }
 

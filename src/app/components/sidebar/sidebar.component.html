@@ -41,10 +41,7 @@
         <a class="nav-link" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
             <span class="avatar avatar-sm rounded-circle">
-              <img
-                alt="Image placeholder"
-                src="assets/img/brand/profile.png"
-              />
+              <img alt="Image placeholder" src="assets/img/brand/profile.png" />
             </span>
           </div>
         </a>
@@ -69,7 +66,7 @@
             <span>Cerrar caja</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#!" class="dropdown-item">
+          <a [routerLink]="['/login']" routerLinkActive="active"  class="dropdown-item">
             <i class="ni ni-user-run"></i>
             <span>Salir</span>
           </a>
@@ -104,12 +101,15 @@
       </div>
       <ul class="navbar-nav d-md-none mt-4">
         <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link"
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            (click)="rootService.showModal(modalDisponibilidadProducto)"
             >Disponibilidad de productos</a
           >
         </li>
         <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link">Tunos abiertos</a>
+          <a href="javascript:void(0)" class="nav-link" (click)="rootService.showModal(modalTurnosAbiertos, 'lg')">Turnos abiertos</a>
         </li>
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link">Enviar mensaje</a>
@@ -187,7 +187,7 @@
             Punto de venta
             <i
               [ngClass]="
-              isMenuCollapsedPuntoVenta
+                isMenuCollapsedPuntoVenta
                   ? 'ni ni-bold-right ml-auto text-right'
                   : 'ni ni-bold-down ml-auto text-right'
               "
@@ -212,8 +212,16 @@
             >
           </li>
         </ul>
-      </div>     
+      </div>
       <hr class="my-3" />
     </div>
+    <ng-template #modalDisponibilidadProducto let-modal>
+      <app-disponibilidad-productos
+        [modal]="modal"
+      ></app-disponibilidad-productos>
+    </ng-template>
+    <ng-template #modalTurnosAbiertos let-modal>
+      <app-turnos-abiertos [modal]="modal"></app-turnos-abiertos>
+    </ng-template>
   </div>
 </nav>

@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { ClientesComponent } from './../../pages/clientes/clientes.component';
 import { Routes } from '@angular/router';
 
@@ -19,6 +20,7 @@ import { CuentasPorCobrasComponent } from 'src/app/pages/caja/cuentas-por-cobras
 import { MonitorVentasComponent } from 'src/app/pages/caja/monitor-ventas/monitor-ventas.component';
 import { PromocionComponent } from 'src/app/pages/caja/promocion/promocion.component';
 import { ConsultasCuentasComponent } from 'src/app/pages/caja/consultas-cuentas/consultas-cuentas.component';
+import { CerrarCajaComponent } from 'src/app/pages/caja/cerrar-caja/cerrar-caja.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -37,5 +39,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'promocion', component: PromocionComponent },
     { path: 'rapido', component: RapidoComponent },
     { path: 'comedor', component: ComedorComponent },
-    { path: 'domicilio', component: DomicilioComponent }
+    { path: 'domicilio', component: DomicilioComponent },
+    { path: 'cerrar-caja', component: CerrarCajaComponent }
 ];

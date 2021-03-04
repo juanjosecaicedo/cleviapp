@@ -20,4 +20,5 @@ export class ClientesComponent implements OnInit {
   public showModal(content): void {
     this.modal.open(content, { centered: true, size: 'lg' });
   }
+
 }

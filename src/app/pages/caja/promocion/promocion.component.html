@@ -5,13 +5,169 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
+  <!-- Modal detalle promocion -->
+  <ng-template #modalDetalle let-modal>
+    <div class="modal-header">
+      <h3 class="modal-title">Detalles de la promocion</h3>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form action="">
+        <div class="form-row">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Clave" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <textarea
+              name=""
+              class="form-control"
+              id=""
+              placeholder="Descripción"
+            ></textarea>
+          </div>
+          <div class="col-md-4 mb-3">
+            <select name="" id="select-volumen" class="custom-select">
+              <option value="">Por volumne</option>
+              <option value="">Tipo descuento</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-por-cada"
+                  >Por cada:</span
+                >
+              </div>
+              <input
+                type="number"
+                class="form-control pl-2"
+                placeholder=""
+                aria-label="Por cada"
+                aria-describedby="basic-por-cada"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Regalar</span>
+              </div>
+              <input
+                type="number"
+                class="form-control pl-3"
+                placeholder=""
+                aria-label="Regalar"
+                aria-describedby="basic-regalar"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="custom-control custom-checkbox mt-2">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="forzar-promocion"
+              />
+              <label class="custom-control-label check" for="forzar-promocion"
+                >¿Forzar promición?</label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr class="py-3" />
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+  </ng-template>
+
   <div class="row">
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
           <h3 class="mb-0">Detalles de promoción</h3>
         </div>
-        <div class="table-responsive">
+        <div class="px-4">
+          <form action="">
+            <div class="form-row">
+              <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Clave" />
+              </div>
+              <div class="col-md-4 mb-3">
+                <textarea
+                  name=""
+                  class="form-control"
+                  id=""
+                  placeholder="Descripción"
+                ></textarea>
+              </div>
+              <div class="col-md-4 mb-3">
+                <select name="" id="select-volumen" class="custom-select">
+                  <option value="">Por volumne</option>
+                  <option value="">Tipo descuento</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-por-cada"
+                      >Por cada:</span
+                    >
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control pl-2"
+                    placeholder=""
+                    aria-label="Por cada"
+                    aria-describedby="basic-por-cada"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Regalar</span
+                    >
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control pl-3"
+                    placeholder=""
+                    aria-label="Regalar"
+                    aria-describedby="basic-regalar"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-control custom-checkbox mt-2">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="forzar-promocion"
+                  />
+                  <label
+                    class="custom-control-label check"
+                    for="forzar-promocion"
+                    >¿Forzar promición?</label
+                  >
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <hr class="my-2" />
+        <div class="table-responsive px-4">
+          <h3>Horario</h3>
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
@@ -51,9 +207,7 @@
                           class="custom-control-input"
                           id="aplica"
                         />
-                        <label
-                          class="custom-control-label check"
-                          for="aplica"
+                        <label class="custom-control-label check" for="aplica"
                           >Aplica</label
                         >
                       </div>
@@ -63,6 +217,65 @@
               </tr>
             </tbody>
           </table>
+        </div>
+        <hr class="my-4" />
+        <div class="px-4 pb-4">
+          <form action="">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="form-row flex-fill">
+                <div class="col-md-3">
+                  <select name="" id="select-grupo" class="custom-select">
+                    <option value="">Grupo de producto</option>
+                    <option value="">Subgrupo de producto</option>
+                    <option value="">Producto</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select name="" id="select-tipo-grupo" class="custom-select">
+                    <option value="">COMIDA RAPIDA</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-success ml-2">
+                <i class="fas fa-plus"></i> Agregar
+              </button>
+            </div>
+          </form>
+          <div class="table-reponsive mt-3">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>58</th>
+                  <td>TACOS</td>
+                  <td>
+                    <button class="btn btn-outline-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>150</th>
+                  <td>CAKE</td>
+                  <td>
+                    <button class="btn btn-outline-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-end flex-wrap">
+              <button class="btn btn-warning mb-2"><i class="fas fa-broom"></i> Limpiar</button>
+              <button class="btn btn-success mb-2"><i class="fas fa-save"></i> Actualizar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -76,10 +289,10 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Calve</th>
+                <th scope="col">Clave</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Estado</th>
-                <th scope="col">Acción</th>                
+                <th scope="col">Acción</th>
               </tr>
             </thead>
             <tbody>
@@ -88,9 +301,21 @@
               <td>Desc 23</td>
               <td>A</td>
               <td>
-                <button class="btn btn-outline-secondary border border-2" placement="top" ngbTooltip="Editar promoción"><i class="far fa-edit"></i></button>
-                <button class="btn btn-outline-danger" placement="top" ngbTooltip="Borrar promoción"><i class="fas fa-trash-alt"></i></button>
-              </td>              
+                <button
+                  class="btn btn-outline-secondary border border-2"
+                  placement="top"
+                  ngbTooltip="Editar promoción"                  
+                >
+                  <i class="far fa-edit"></i>
+                </button>
+                <button
+                  class="btn btn-outline-danger"
+                  placement="top"
+                  ngbTooltip="Borrar promoción"
+                >
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
             </tbody>
           </table>
           <nav aria-label="...">
@@ -105,9 +330,13 @@
                 <a class="page-link" href="javascript:void(0)">1</a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+                <a class="page-link" href="javascript:void(0)"
+                  >2 <span class="sr-only">(current)</span></a
+                >
               </li>
-              <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">3</a>
+              </li>
               <li class="page-item">
                 <a class="page-link" href="javascript:void(0)">
                   <i class="fas fa-angle-right"></i>
