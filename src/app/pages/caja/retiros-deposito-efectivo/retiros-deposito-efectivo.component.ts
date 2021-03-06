@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RootService } from 'src/app/services/root.service';
 
 @Component({
   selector: 'app-retiros-deposito-efectivo',
@@ -8,12 +8,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RetirosDepositoEfectivoComponent implements OnInit {
 
-  public nuevoRetiro: boolean = true;
-  constructor(private modal: NgbModal) { }
+  public nuevoRetiro = true;
+  public indexSlide = 0;
+  constructor(public rootService: RootService) { }
 
-  ngOnInit(): void {
-  }
-  public showModal(content: any): void {
-    this.modal.open(content, { centered: true, size: 'lg' });
-  }
+  ngOnInit(): void { }
+
 }

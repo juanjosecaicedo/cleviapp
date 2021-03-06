@@ -29,6 +29,9 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.component';
 
 
+
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -40,7 +43,8 @@ import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.compon
     AppRoutingModule,
     ClientesModule,
     PuntoVentasModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+
   ],
   declarations: [
     AppComponent,
@@ -57,7 +61,8 @@ import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.compon
     MonitorVentasComponent,
     ConsultasCuentasComponent,
     PromocionComponent,
-    CerrarCajaComponent
+    CerrarCajaComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

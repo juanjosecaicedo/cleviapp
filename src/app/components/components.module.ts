@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisponibilidadProductosComponent } from './disponibilidad-productos/disponibilidad-productos.component';
 import { TurnosAbiertosComponent } from './turnos-abiertos/turnos-abiertos.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +20,7 @@ import { TurnosAbiertosComponent } from './turnos-abiertos/turnos-abiertos.compo
     NavbarComponent,
     SidebarComponent,
     DisponibilidadProductosComponent,
-    TurnosAbiertosComponent
+    TurnosAbiertosComponent,
   ],
   exports: [
     FooterComponent,

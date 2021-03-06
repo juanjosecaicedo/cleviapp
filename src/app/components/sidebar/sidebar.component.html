@@ -66,7 +66,11 @@
             <span>Cerrar caja</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a [routerLink]="['/login']" routerLinkActive="active"  class="dropdown-item">
+          <a
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            class="dropdown-item"
+          >
             <i class="ni ni-user-run"></i>
             <span>Salir</span>
           </a>
@@ -109,7 +113,12 @@
           >
         </li>
         <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link" (click)="rootService.showModal(modalTurnosAbiertos, 'lg')">Turnos abiertos</a>
+          <a
+            href="javascript:void(0)"
+            class="nav-link"
+            (click)="rootService.showModal(modalTurnosAbiertos, 'lg')"
+            >Turnos abiertos</a
+          >
         </li>
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link">Enviar mensaje</a>

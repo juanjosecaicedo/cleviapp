@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { RootService } from './../../services/root.service';
 
 
 @Component({
@@ -9,16 +10,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ClientesComponent implements OnInit {
 
-  public isOpen: boolean = false;
+  public isOpen = false;
   public nuevoCliente = false;
 
-  constructor(private modal: NgbModal) { }
+  constructor(public rootService: RootService) { }
 
-  ngOnInit(): void {
-  }
-
-  public showModal(content): void {
-    this.modal.open(content, { centered: true, size: 'lg' });
-  }
+  ngOnInit(): void { }
 
 }

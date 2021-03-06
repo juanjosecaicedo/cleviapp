@@ -52,7 +52,7 @@
               placeholder="Observaciones"
             ></textarea>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 mb-3">
             <div class="input-group">
               <select name="" id="select-tipo-decuento" class="custom-select">
                 <option value="">Tipo de descuento</option>
@@ -63,7 +63,7 @@
                 <button
                   type="button"
                   class="btn btn-outline-primary"
-                  (click)="showModal(modalDescuento); modal.dismiss('Ok click')"
+                  (click)="rootService.showModal(modalDescuento); modal.dismiss('Ok click')"
                 >
                   <i class="fas fa-plus-circle"></i>
                 </button>
@@ -83,7 +83,7 @@
                   type="button"
                   class="btn btn-outline-primary"
                   (click)="
-                    showModal(modalTipoCliente); modal.dismiss('Ok click')
+                  rootService.showModal(modalTipoCliente); modal.dismiss('Ok click')
                   "
                 >
                   <i class="fas fa-plus-circle"></i>
@@ -137,7 +137,7 @@
         type="button"
         class="close"
         aria-label="Close"
-        (click)="modal.dismiss('Ok click'); showModal(content)"
+        (click)="modal.dismiss('Ok click'); rootService.showModal(content)"
       >
         <span aria-hidden="true">&times;</span>
       </button>
@@ -248,7 +248,7 @@
         type="button"
         class="close"
         aria-label="Close"
-        (click)="modal.dismiss('Cross click'); showModal(content)"
+        (click)="modal.dismiss('Cross click'); rootService.showModal(content)"
       >
         <span aria-hidden="true">&times;</span>
       </button>
@@ -383,7 +383,7 @@
                 </div>
                 <button
                   class="btn btn-primary ml-2"
-                  (click)="showModal(content); nuevoCliente = true"
+                  (click)="rootService.showModal(content); nuevoCliente = true"
                 >
                   <i class="fas fa-plus"></i> Crear cliente
                 </button>
@@ -454,7 +454,7 @@
                       <a
                         class="dropdown-item align-items-center"
                         href="javascript:void(0)"
-                        (click)="showModal(content); nuevoCliente = false"
+                        (click)="rootService.showModal(content); nuevoCliente = false"
                         ><i class="far fa-edit mr-2"></i><span>Editar</span></a
                       >
                       <a

@@ -200,7 +200,7 @@
           </div>
         </form>
         <div class="d-flex justify-content-end mx-4 mb-2">
-          <button class="btn btn-success" (click)="showModal(modalCuenta)">
+          <button class="btn btn-success" (click)="rootService.showModal(modalCuenta)">
             <i class="fas fa-plus"></i> crear
           </button>
         </div>
@@ -237,7 +237,7 @@
                     class="btn btn-outline-secondary mr-2"
                     placement="top"
                     ngbTooltip="Ver forma de pago"
-                    (click)="showModal(modalFormaPago)"
+                    (click)="rootService.showModal(modalFormaPago)"
                   >
                     <i class="fas fa-eye"></i>
                   </button>

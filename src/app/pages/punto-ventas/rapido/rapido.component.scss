@@ -1,0 +1,24 @@
+.slider-container .slider {
+    display: none;
+    transition:  5s ease-in-out;
+}
+
+.slider-container .show {
+    display: inline;
+    
+}
+
+.animate-slide-left {
+    transition: 1.2s;    
+    animation-name: slide;
+    animation-duration: 0.5s;
+}
+
+.animate-slide-rigth {
+    
+}
+
+@keyframes slide-left {
+    from {  margin-left: 200px;}
+    to { margin-left: 0px;}
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RootService } from 'src/app/services/root.service';
 
 @Component({
   selector: 'app-cuentas-por-cobras',
@@ -8,13 +8,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CuentasPorCobrasComponent implements OnInit {
 
-  constructor(private modal: NgbModal) { }
+  constructor(public rootService: RootService) { }
 
   ngOnInit(): void {
-  }
-
-  public showModal(content: void): void {
-    this.modal.open(content, { centered: true, size: 'lg' });
   }
 
 }

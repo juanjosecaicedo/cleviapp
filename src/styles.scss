@@ -7,6 +7,7 @@
   }
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~animate.css/animate.min';
 
 #sidenav-collapse-main.collapsing  {
   transition: none !important;
