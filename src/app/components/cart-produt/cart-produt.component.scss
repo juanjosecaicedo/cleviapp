@@ -1,19 +1,14 @@
-.bg-light {
-    background-color: #f8f9fe !important;
+ul {
+    list-style: none;
+    padding-inline-start: 0px;
 }
 
-.card-description {
-    min-height: 5rem;
+.card-total {
+    border-radius: 2rem 0px 5px 0px;
 }
 
-.card-product {
-    transition: all 0.6s;
-    cursor: pointer;
-
-}
-
-.card-product:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+.cotainer-producto-to-cart {
+    min-height: 60vh;
 }
 
 .btn-floating,
@@ -99,4 +94,11 @@
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
     z-index: 10;
+}
+.metodos-pago button {
+    border: solid 2px transparent;
+}
+
+.metodos-pago button:focus {
+    border: solid 2px rgb(18, 194, 165);
 }

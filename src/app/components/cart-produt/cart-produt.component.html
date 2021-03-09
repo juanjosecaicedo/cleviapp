@@ -1,0 +1,363 @@
+<div class="form bg-white p-2 mt-2">
+  <div class="form-row">
+    <div class="col-sm-4 col-md-12 col-lg-4 mb-3">
+      <select name="" id="select-area" class="custom-select">
+        <option value="">Area de ventas</option>
+        <option value="">Piso 14</option>
+        <option value="">Piso 16</option>
+      </select>
+    </div>
+    <div class="col-sm-8 col-md-12 col-lg-8">
+      <textarea
+        name=""
+        id=""
+        class="form-control"
+        placeholder="Observaciones"
+      ></textarea>
+    </div>
+  </div>
+</div>
+<div class="mt-2 d-flex flex-column justify-content-between">
+  <div class="cotainer-producto-to-cart">
+    <ul class="">
+      <li class="border p-2 mb-2">
+        <div class="row align-items-center">
+          <div class="col-2 mb-2">
+            <button class="btn btn-outline-danger btn-floating btn-lg border-0">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <div class="col-md-3 mb-2">
+            <strong>Onigiri</strong>
+          </div>
+          <div class="col-md-5 col-lg-3">
+            <input
+              type="number"
+              class=""
+              value="1"
+              class="form-control"
+              min="1"
+            />
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="valor"
+                aria-label="valor"
+                value="12.000"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="border p-2 mb-2">
+        <div class="row align-items-center">
+          <div class="col-2 mb-2">
+            <button class="btn btn-outline-danger btn-floating btn-lg border-0">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <div class="col-md-3 mb-2">
+            <strong>Bebidas</strong>
+          </div>
+          <div class="col-md-5 col-lg-3">
+            <input
+              type="number"
+              class=""
+              value="1"
+              class="form-control"
+              min="1"
+            />
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="valor"
+                aria-label="valor"
+                value="2.222"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <div class="bg-gradient-warning pt-2 pl-5 text-right card-total">
+      <div>
+        <strong class="text-white pr-1">Total $ 12,000</strong>
+      </div>
+      <button
+        class="btn btn-success"
+        (click)="
+          rootService.closedAllModal();
+          rootService.showModal(modalCheckout, 'xl')
+        "
+      >
+        <i class="fas fa-money-bill-wave"></i> Pagar
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalCheckout let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body metodos-pago">
+    <div class="d-flex flex-wrap justify-content-between">
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/efectivo.png"
+          width="40"
+          height="40"
+          alt="efectivo"
+        />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/mastercard.png"
+          width="40"
+          alt="mastercard"
+        />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/efectivo.png"
+          width="40"
+          height="40"
+          alt="efectivo"
+        />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/bancolombia.png"
+          width="40"
+          alt="bancolombia"
+        />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img src="./assets/img/brand/visa.png" width="40" alt="visa" />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/american-express.png"
+          width="40"
+          alt="american-express"
+        />
+      </button>
+      <button class="btn btn-outline-secundary">
+        <img
+          src="./assets/img/brand/colpatria.png"
+          width="40"
+          alt="american-express"
+        />
+      </button>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12 col-lg-4 d-flex justify-content-center">
+        <div class="card" style="width: 18rem">
+          <div class="card-body text-center">
+            <div class="mb-2">
+              <input type="text" [value]="valueKeyboard" class="form-control" />
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span>Borrar</span>
+              <input
+                type="button"
+                [disabled]="valueKeyboard.split('').length > 0 ? false : true"
+                class="btn border"
+                value="←"
+                (click)="deleteCaracter()"
+              />
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <input
+                type="button"
+                value="7"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="8"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="9"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <input
+                type="button"
+                value="5"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="5"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="6"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <input
+                type="button"
+                value="1"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="2"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="3"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+            </div>
+            <div class="d-flex justify-content-between">
+              <input
+                type="button"
+                value="."
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input
+                type="button"
+                value="0"
+                class="btn border"
+                (click)="setValueKeyboard($event.target)"
+              />
+              <input type="button" value="↵" class="btn border" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-8">
+        <form action="">
+          <div class="form-row">
+            <div class="col-md-6 mb-2">
+              <select name="" id="" class="form-control">
+                <option value="">Cliente</option>
+                <option value="">option 1</option>
+                <option value="">option 2</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-consumo-total"
+                    >Consumo total</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control pl-2"
+                  disabled
+                  value="12000"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-propina"
+                    >Propina</span
+                  >
+                </div>
+                <input type="number" class="form-control pl-2" value="0" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-valor-pagar"
+                    >Valor a pagar</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  class="form-control pl-2"
+                  disabled
+                  value="0"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-faltante"
+                    >Faltante</span
+                  >
+                </div>
+                <input type="number" class="form-control pl-2" value="0" />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex"></div>
+          <button class="btn btn-success float-right mb-3">Confirmar</button>
+        </form>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Clave</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Importe</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.close('Close click')"
+    >
+      cerrar
+    </button>
+  </div>
+</ng-template>

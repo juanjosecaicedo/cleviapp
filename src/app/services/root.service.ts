@@ -6,9 +6,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RootService {
 
-  constructor(private modal: NgbModal) { }
+  constructor(public modal: NgbModal) { }
+
+ 
 
   public showModal(content: any, size = 'xl'): void {
     this.modal.open(content, {centered: true, size});
   }
+
+  public closedAllModal(){
+    this.modal.dismissAll('Closed all');
+  }
+
 }

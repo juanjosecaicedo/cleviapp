@@ -10,68 +10,169 @@
       class="card-header d-flex justify-content-between align-items-center border-0"
     >
       <h3 class="mb-0">Punto de venta</h3>
-      <button class="btn d-sm-inline d-md-none">
+      <button class="btn d-md-inline d-lg-none" (click)="rootService.showModal(modalCart)">
         <i class="fas fa-money-check-alt"></i>
       </button>
     </div>
     <div class="row px-4 pb-4">
       <div class="col">
+        <app-carousel-slider [template]="slideContent"></app-carousel-slider>
+        <div class="d-flex justify-content-between flex-wrap mt-2">
+          <div class="flex-fill mr-2 mb-2">
+            <input type="text" placeholder="Buscar" class="form-control" />
+          </div>
+          <div class="mr-2 mb-2">
+            <button class="btn btn-warning">
+              <i class="fas fa-thumbs-up"></i> like
+            </button>
+          </div>
+          <button class="btn btn-warning mb-2">
+            <i class="fas fa-barcode"></i> Codigo de barras
+          </button>
+          <button class="btn btn-floating btn-lg border mb-2">
+            <i class="fas fa-star"></i>
+          </button>
+        </div>
+        <hr class="my-4" />
+        <!-- Tarjeta de productos -->
         <div
-          class="slider-container d-flex justify-content-between align-items-center"
+          class="bg-light py-2 d-flex flex-wrap justify-content-center justify-content-xl-start"
         >
-          <a href="javascript:void(0)" class="prev" (click)="plusSlides(-1)">
-            <i class="fas fa-chevron-left"></i>
-          </a>
-          <div class="slider show">
-            <button class="btn border">button 1</button>
-            <button class="btn border">button 2</button>
-            <button class="btn border">button 3</button>
-            <button class="btn border">button 7</button>
-            <button class="btn border">button 8</button>
-            <button class="btn border">button 9</button>
+          <div class="card card-product mb-2 mx-1" style="width: 18rem">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between p-2 rounded-sm bg-gradient-warning align-items-center mb-2"
+              >
+                <span class="text-white">precio:</span>
+                <h1 class="card-title mb-0 text-white">$ 2,222</h1>
+              </div>
+
+              <div class="img-cart text-center">
+                <img
+                  src="./assets/img/brand/add-to-cart.png"
+                  width="110"
+                  alt=""
+                />
+              </div>
+              <strong class="">Canoa con Queso</strong>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>En stock:</span>
+                <span class="bg-light rounded-md text-warning p-2">1</span>
+              </div>
+            </div>
           </div>
-          <div class="slider">
-            <button class="btn border animate fadeOut">button 4</button>
-            <button class="btn border">button 5</button>
-            <button class="btn border">button 6</button>
-            <button class="btn border">button 1</button>
-            <button class="btn border">button 2</button>
-            <button class="btn border">button 3</button>
+          <div class="card card-product mb-2 mx-1" style="width: 18rem">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between p-2 rounded-sm bg-gradient-warning align-items-center"
+              >
+                <span class="text-white">precio:</span>
+                <h1 class="card-title mb-0 text-white">$ 30,200</h1>
+              </div>
+              <div class="img-cart text-center">
+                <img
+                  src="./assets/img/brand/add-to-cart.png"
+                  width="110"
+                  alt=""
+                />
+              </div>
+              <strong>Picada</strong>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>En stock:</span>
+                <span class="bg-light rounded-md text-warning p-2">12</span>
+              </div>
+            </div>
           </div>
-          <div class="slider">
-            <button class="btn border">button 7</button>
-            <button class="btn border">button 8</button>
-            <button class="btn border">button 9</button>
-            <button class="btn border">button 1</button>
-            <button class="btn border">button 2</button>
-            <button class="btn border">button 3</button>
+          <div class="card card-product mb-2 mx-1" style="width: 18rem">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between p-2 rounded-sm bg-gradient-warning align-items-center"
+              >
+                <span class="text-white">precio:</span>
+                <h1 class="card-title mb-0 text-white">$ 2,222</h1>
+              </div>
+              <div class="img-cart text-center">
+                <img
+                  src="./assets/img/brand/add-to-cart.png"
+                  width="110"
+                  alt=""
+                />
+              </div>
+              <strong class="">Bebidas</strong>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>En stock:</span>
+                <span class="bg-light rounded-md text-warning p-2">1</span>
+              </div>
+            </div>
           </div>
-          <a href="javascript:void(0)" class="next" (click)="plusSlides(1)">
-            <i class="fas fa-chevron-right"></i>
-          </a>
+          <div class="card card-product mb-2 mx-1" style="width: 18rem">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between p-2 rounded-sm bg-gradient-warning align-items-center"
+              >
+                <span class="text-white">precio:</span>
+                <h1 class="card-title mb-0 text-white">$ 2,222</h1>
+              </div>
+              <div class="img-cart text-center">
+                <img
+                  src="./assets/img/brand/add-to-cart.png"
+                  width="110"
+                  alt=""
+                />
+              </div>
+              <strong class="">Bebidas</strong>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>En stock:</span>
+                <span class="bg-light rounded-md text-warning p-2">1</span>
+              </div>
+            </div>
+          </div>
+          <div class="card card-product mb-2 mx-1" style="width: 18rem">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between p-2 rounded-sm bg-gradient-warning align-items-center"
+              >
+                <span class="text-white">precio:</span>
+                <h1 class="card-title mb-0 text-white">$ 2,222</h1>
+              </div>
+              <div class="img-cart text-center">
+                <img
+                  src="./assets/img/brand/add-to-cart.png"
+                  width="110"
+                  alt=""
+                />
+              </div>
+              <strong class="">Bebidas</strong>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>En stock:</span>
+                <span class="bg-light rounded-md text-warning p-2">1</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-4 col-lg-6 d-none d-md-none d-md-block">
-        <div class="form">
-          <div class="form-row">
-            <div class="col-sm-4 col-md-12 col-lg-4 mb-3">
-              <select name="" id="select-area" class="custom-select">
-                <option value="">Area de ventas</option>
-                <option value="">Piso 14</option>
-                <option value="">Piso 16</option>
-              </select>
-            </div>
-            <div class="col-sm-8 col-md-12 col-lg-8">
-              <textarea
-                name=""
-                id=""
-                class="form-control"
-                placeholder="Observaciones"
-              ></textarea>
-            </div>
-          </div>
-        </div>
+      <!-- Columna carrito de compras -->
+      <div
+        class="col-md-4 col-lg-6 d-none d-sm-none d-md-none d-lg-block bg-light"
+      >        
+        <app-cart-produt></app-cart-produt>
       </div>
     </div>
   </div>
 </div>
+<ng-template #modalCart let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-cart-produt></app-cart-produt>
+  </div>  
+</ng-template>
+
+
+<ng-template #slideContent let-test>
+  <h2>Template</h2>
+</ng-template>

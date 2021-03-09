@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,12 +7,12 @@ import { RapidoComponent } from './rapido/rapido.component';
 import { ComedorComponent } from './comedor/comedor.component';
 import { DomicilioComponent } from './domicilio/domicilio.component';
 
-
 @NgModule({
   declarations: [RapidoComponent, ComedorComponent, DomicilioComponent],
   imports: [
     CommonModule,
-    PuntoVentasRoutingModule
+    PuntoVentasRoutingModule,
+    ComponentsModule,
   ]
 })
 export class PuntoVentasModule { }

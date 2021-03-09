@@ -28,10 +28,6 @@ import { PromocionComponent } from './pages/caja/promocion/promocion.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.component';
 
-
-
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -44,7 +40,6 @@ import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.compon
     ClientesModule,
     PuntoVentasModule,
     AmazingTimePickerModule,
-
   ],
   declarations: [
     AppComponent,
@@ -62,7 +57,7 @@ import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.compon
     ConsultasCuentasComponent,
     PromocionComponent,
     CerrarCajaComponent,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

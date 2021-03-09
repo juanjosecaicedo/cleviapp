@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisponibilidadProductosComponent } from './disponibilidad-productos/disponibilidad-productos.component';
 import { TurnosAbiertosComponent } from './turnos-abiertos/turnos-abiertos.component';
+import { CarouselSliderComponent } from './carousel-slider/carousel-slider.component';
+import { CartProdutComponent } from './cart-produt/cart-produt.component';
+
 
 
 @NgModule({
@@ -21,11 +24,15 @@ import { TurnosAbiertosComponent } from './turnos-abiertos/turnos-abiertos.compo
     SidebarComponent,
     DisponibilidadProductosComponent,
     TurnosAbiertosComponent,
+    CarouselSliderComponent,
+    CartProdutComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    CarouselSliderComponent,
+    CartProdutComponent
   ]
 })
 export class ComponentsModule { }
