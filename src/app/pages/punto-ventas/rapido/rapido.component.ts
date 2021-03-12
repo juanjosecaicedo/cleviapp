@@ -13,6 +13,6 @@ export class RapidoComponent implements OnInit {
   ngOnInit(): void {
   }
   public callback() {
-    console.log('callback')
+    console.log('callback');
   }
 }

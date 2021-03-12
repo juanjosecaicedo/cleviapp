@@ -5,7 +5,6 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
-  
   <!-- modal cliente -->
   <ng-template #content let-modal>
     <div class="modal-header">
@@ -63,7 +62,10 @@
                 <button
                   type="button"
                   class="btn btn-outline-primary"
-                  (click)="rootService.showModal(modalDescuento); modal.dismiss('Ok click')"
+                  (click)="
+                    rootService.showModal(modalDescuento);
+                    modal.dismiss('Ok click')
+                  "
                 >
                   <i class="fas fa-plus-circle"></i>
                 </button>
@@ -83,7 +85,8 @@
                   type="button"
                   class="btn btn-outline-primary"
                   (click)="
-                  rootService.showModal(modalTipoCliente); modal.dismiss('Ok click')
+                    rootService.showModal(modalTipoCliente);
+                    modal.dismiss('Ok click')
                   "
                 >
                   <i class="fas fa-plus-circle"></i>
@@ -132,7 +135,7 @@
   <!-- modal descuento -->
   <ng-template #modalDescuento let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Tipode de descuento</h4>
+      <h4 class="modal-title">Tipo de descuento</h4>
       <button
         type="button"
         class="close"
@@ -275,9 +278,7 @@
       <hr class="my-4" />
       <div class="d-flex justify-content-end flex-wrap">
         <div class="row">
-          <div
-            class="col-12 input-group input-group-rounded input-group-merge"
-          >
+          <div class="col-12 input-group input-group-rounded input-group-merge">
             <input
               type="search"
               class="form-control form-control-rounded form-control-prepended"
@@ -356,7 +357,48 @@
         </ul>
       </nav>
     </div>
-  </ng-template>  
+  </ng-template>
+
+  <ng-template #modalMasInfoUsuario let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Mas detalles</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Tipo de domicilio</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Barrio</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Teléfono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>General</td>
+              <td>Cali</td>
+              <td>Altos del Vergel</td>
+              <td>Calle 13</td>
+              <td>4523658</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-light" (click)="modal.dismiss('Cross click')">Cerrar</button>
+    </div>
+  </ng-template>
 
   <div class="row">
     <div class="col">
@@ -382,7 +424,7 @@
                   </div>
                 </div>
                 <button
-                  class="btn btn-primary ml-2"
+                  class="btn btn-success ml-2"
                   (click)="rootService.showModal(content); nuevoCliente = true"
                 >
                   <i class="fas fa-plus"></i> Crear cliente
@@ -408,17 +450,12 @@
             <tbody>
               <tr>
                 <td>
-                  <a
-                    href="javascript:void(0)"
-                    class="p-2"
-                    (click)="isOpen = !isOpen"
+                  <button
+                    class="btn btn-outline-secundary"
+                    (click)="rootService.showModal(modalMasInfoUsuario, 'lg')"
                   >
-                    <i
-                      [ngClass]="
-                        isOpen ? 'fas fa-caret-down' : 'fas fa-caret-right'
-                      "
-                    ></i>
-                  </a>
+                    <i class="fas fa-info-circle"></i>
+                  </button>
                 </td>
                 <th scope="row">102212232</th>
                 <td>jhoe</td>
@@ -454,7 +491,9 @@
                       <a
                         class="dropdown-item align-items-center"
                         href="javascript:void(0)"
-                        (click)="rootService.showModal(content); nuevoCliente = false"
+                        (click)="
+                          rootService.showModal(content); nuevoCliente = false
+                        "
                         ><i class="far fa-edit mr-2"></i><span>Editar</span></a
                       >
                       <a

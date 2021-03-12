@@ -9,6 +9,7 @@ import { DisponibilidadProductosComponent } from './disponibilidad-productos/dis
 import { TurnosAbiertosComponent } from './turnos-abiertos/turnos-abiertos.component';
 import { CarouselSliderComponent } from './carousel-slider/carousel-slider.component';
 import { CartProdutComponent } from './cart-produt/cart-produt.component';
+import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 
 
 
@@ -25,7 +26,8 @@ import { CartProdutComponent } from './cart-produt/cart-produt.component';
     DisponibilidadProductosComponent,
     TurnosAbiertosComponent,
     CarouselSliderComponent,
-    CartProdutComponent
+    CartProdutComponent,
+    AlertConfirmComponent
   ],
   exports: [
     FooterComponent,

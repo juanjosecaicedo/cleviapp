@@ -30,7 +30,7 @@ export class CarouselSliderComponent implements OnInit {
     this.showSlide(this.indexSlide += n);
   }
 
-  private showSlide(numero: number) {
+  private showSlide(numero: number): any {
     const slides: NodeListOf<Element> | any = document.querySelectorAll('.slider-container .slider');
     if (numero > slides.length) { this.indexSlide = 1 }
     if (numero < 1) { this.indexSlide = slides.length }

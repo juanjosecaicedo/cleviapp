@@ -1,3 +1,4 @@
+import { ComponentesComponent } from './../../pages/componentes/componentes.component';
 import { Component } from '@angular/core';
 import { ClientesComponent } from './../../pages/clientes/clientes.component';
 import { Routes } from '@angular/router';
@@ -40,5 +41,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'rapido', component: RapidoComponent },
     { path: 'comedor', component: ComedorComponent },
     { path: 'domicilio', component: DomicilioComponent },
-    { path: 'cerrar-caja', component: CerrarCajaComponent }
+    { path: 'cerrar-caja', component: CerrarCajaComponent },
+    { path: 'componentes', component: ComponentesComponent }
 ];

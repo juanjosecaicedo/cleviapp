@@ -95,23 +95,102 @@
     </ul>
   </div>
 
-  <div class="d-flex justify-content-end">
-    <div class="bg-gradient-warning pt-2 pl-5 text-right card-total">
-      <div>
-        <strong class="text-white pr-1">Total $ 12,000</strong>
+  <div>
+    <div class="table-reponsive">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            <button
+              class="btn btn-warning border shadow-lg"
+              (click)="
+                rootService.closedAllModal();
+                rootService.showModal(modalDescuento, 'sm')
+              "
+            >
+              Descuento general
+            </button>
+          </td>
+          <th>Subtotal:</th>
+          <td>$ 0</td>
+        </tr>
+        <tr>
+          <th>Desc. General:</th>
+          <td>
+            <span class="text-danger">- $ 0</span>
+          </td>
+          <th>Subtotal Desc.</th>
+          <td>$ 0</td>
+        </tr>
+        <tr>
+          <th>Impuestos:</th>
+          <td>$ 0</td>
+          <th>Valor Base:</th>
+          <td>$ 0</td>
+        </tr>
+        <tr>
+          <th>Cargos:</th>
+          <td>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-cargos">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control pl-2"
+                value="0"
+                placeholder="cargos"
+                aria-label="cargos"
+                aria-describedby="basic-cargos"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="bg-gradient-warning pt-2 pl-5 text-right card-total">
+        <div>
+          <strong class="text-white pr-1">Total $ 12,000</strong>
+        </div>
+        <button
+          class="btn btn-success px-4"
+          (click)="
+            rootService.closedAllModal();
+            rootService.showModal(modalCheckout, 'xl')
+          "
+        >
+          <i class="fas fa-money-bill-wave"></i> Pagar
+        </button>
       </div>
-      <button
-        class="btn btn-success"
-        (click)="
-          rootService.closedAllModal();
-          rootService.showModal(modalCheckout, 'xl')
-        "
-      >
-        <i class="fas fa-money-bill-wave"></i> Pagar
-      </button>
     </div>
   </div>
 </div>
+
+<ng-template #modalDescuento let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Descuento</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action="">
+      <select name="" id="select-descunto" class="custom-select">
+        <option value="">Descuento por</option>
+        <option value="">Porcentual</option>
+        <option value="">Valor</option>
+      </select>
+      <button class="float-right btn btn-success mt-3">
+        Aplicar descuento
+      </button>
+    </form>
+  </div>
+</ng-template>
 
 <ng-template #modalCheckout let-modal>
   <div class="modal-header">
@@ -175,7 +254,7 @@
         />
       </button>
     </div>
-    
+
     <div class="row">
       <div class="col-md-12 col-lg-4 d-flex justify-content-center">
         <div class="card" style="width: 18rem">
@@ -328,7 +407,12 @@
                     >Faltante</span
                   >
                 </div>
-                <input type="number" class="form-control pl-2" value="0" />
+                <input
+                  type="number"
+                  disabled
+                  class="form-control pl-2"
+                  value="0"
+                />
               </div>
             </div>
           </div>
@@ -346,6 +430,15 @@
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

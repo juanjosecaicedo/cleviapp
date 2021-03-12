@@ -27,6 +27,7 @@ import { ConsultasCuentasComponent } from './pages/caja/consultas-cuentas/consul
 import { PromocionComponent } from './pages/caja/promocion/promocion.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.component';
+import { ComponentesComponent } from './pages/componentes/componentes.component';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import { CerrarCajaComponent } from './pages/caja/cerrar-caja/cerrar-caja.compon
     ConsultasCuentasComponent,
     PromocionComponent,
     CerrarCajaComponent,
+    ComponentesComponent,
 
   ],
   providers: [],
