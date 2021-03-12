@@ -22,14 +22,13 @@ declare enum sizeTipes {
   providedIn: 'root'
 })
 
-
 export class AlertDialogConfirmService {
 
   constructor(private modalServie: NgbModal) { }
 
-  public confirm(
-    options: OPTIONS_MODAL
-  ): Promise<boolean> {
+  public confirm(options: OPTIONS_MODAL): Promise<boolean> {
+
+    type sizing = 'sm' | 'md' | 'lg' | 'xl';
 
     const {
       title,

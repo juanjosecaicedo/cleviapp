@@ -396,7 +396,9 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-light" (click)="modal.dismiss('Cross click')">Cerrar</button>
+      <button class="btn btn-light" (click)="modal.dismiss('Cross click')">
+        Cerrar
+      </button>
     </div>
   </ng-template>
 
@@ -438,11 +440,21 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">Documento</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Tipo Cliente</th>
-                <th scope="col">Correo</th>
+                <th scope="col" sortable="documento" (sort)="onSort($event)">
+                  Documento
+                </th>
+                <th scope="col" sortable="nombre" (sort)="onSort($event)">
+                  Nombre
+                </th>
+                <th scope="col" sortable="apellidos" (sort)="onSort($event)">
+                  Apellidos
+                </th>
+                <th scope="col" sortable="tipoCliente" (sort)="onSort($event)">
+                  Tipo Cliente
+                </th>
+                <th scope="col" sortable="correo" (sort)="onSort($event)">
+                  Correo
+                </th>
                 <th scope="col">Estado</th>
                 <th scope="col">Acciones</th>
               </tr>
@@ -728,6 +740,42 @@
               </li>
             </ul>
           </nav>
+          <!-- <div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" sortable="name" (sort)="onSort($event)">
+                    Country
+                  </th>
+                  <th scope="col" sortable="area" (sort)="onSort($event)">
+                    Area
+                  </th>
+                  <th scope="col" sortable="population" (sort)="onSort($event)">
+                    Population
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let country of countries">
+                  <th scope="row">{{ country.id }}</th>
+                  <td>
+                    <img
+                      [src]="
+                        'https://upload.wikimedia.org/wikipedia/commons/' +
+                        country.flag
+                      "
+                      class="mr-2"
+                      style="width: 20px"
+                    />
+                    {{ country.name }}
+                  </td>
+                  <td>{{ country.area | number }}</td>
+                  <td>{{ country.population | number }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
         </div>
       </div>
     </div>
